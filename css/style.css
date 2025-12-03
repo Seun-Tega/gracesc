@@ -2253,3 +2253,309 @@ main {
         transform: translateY(0);
     }
 }
+/* ===== MAIN WEBSITE HEADER - RESPONSIVE ===== */
+
+/* Enhanced Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-lg);
+    padding: 0.75rem 0;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    font-weight: 800;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    margin-right: auto;
+}
+
+.brand-logo {
+    height: clamp(35px, 4vw, 40px);
+    width: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+/* Navbar Toggler - Hamburger Menu */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-blue);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.25);
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    width: 20px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    transform: translateY(-6px);
+}
+
+.navbar-toggler-icon::after {
+    transform: translateY(6px);
+}
+
+/* Navbar Toggler Animation */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+}
+
+/* Navbar Collapse */
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+/* Navbar Nav */
+.navbar-nav {
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Nav Links */
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    padding: 0.75rem clamp(0.75rem, 2vw, 1.5rem) !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--gradient-primary);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Mobile Navigation */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 0 0 20px 20px;
+        box-shadow: var(--shadow-lg);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border-top: 1px solid var(--medium-gray);
+    }
+
+    .navbar-nav {
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 1rem 1.5rem !important;
+        margin: 0.25rem 0;
+        display: block;
+        border-radius: 10px;
+        background: rgba(30, 64, 175, 0.05);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--gradient-primary);
+        color: white !important;
+    }
+
+    /* Ensure navbar toggler is visible */
+    .navbar-toggler {
+        display: flex !important;
+    }
+}
+
+/* Desktop Navigation */
+@media (min-width: 992px) {
+    .navbar-nav {
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1.25rem !important;
+    }
+
+    /* Hide toggler on desktop */
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .brand-logo {
+        height: 30px;
+    }
+
+    .navbar-toggler {
+        width: 36px;
+        height: 36px;
+    }
+
+    .navbar-toggler-icon {
+        width: 18px;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+        width: 18px;
+    }
+
+    .nav-link {
+        padding: 0.875rem 1rem !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 375px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .brand-logo {
+        height: 28px;
+    }
+
+    .nav-link {
+        padding: 0.75rem 0.875rem !important;
+        font-size: 0.85rem;
+    }
+}
+
+/* Container adjustments for header */
+.navbar > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Ensure proper spacing */
+.navbar .container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Active state improvements */
+.nav-link.active {
+    font-weight: 600;
+}
+
+/* Dropdown styles if you have dropdowns */
+.navbar .dropdown-menu {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 0.5rem;
+}
+
+.navbar .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* Hero section margin adjustment for fixed header */
+.hero-section,
+.hero-with-image {
+    margin-top: 80px; /* Adjust based on your header height */
+}
+
+/* Ensure body doesn't scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+/* Smooth transitions */
+.navbar-collapse {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus states for accessibility */
+.nav-link:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.navbar-toggler:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
